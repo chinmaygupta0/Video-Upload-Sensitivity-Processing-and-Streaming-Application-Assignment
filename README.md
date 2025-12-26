@@ -85,52 +85,25 @@ The application is built using **Node.js, Express, MongoDB, React (Vite)** and l
 
 ---
 
-## 📡 Real-Time Updates
-
-- Processing progress is sent via Socket.io events:
-```js
-{
-  videoId,
-  progress,
-  status
-}
-
+## Backend Folder Structure
 
 backend/
 ├── src/
-│   ├── app.js
-│   ├── server.js
+│   ├── app.js            # Express app configuration
+│   ├── server.js         # Server & Socket.io initialization
 │   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   ├── routes/
-│   ├── models/
-│   ├── middlewares/
-│   ├── services/
-│   ├── sockets/
-│   └── utils/
-├── uploads/
-└── .env
+│   │   └── db.js         # MongoDB connection setup
+│   ├── controllers/      # Request handlers (business logic)
+│   ├── routes/           # API route definitions
+│   ├── models/           # Mongoose schemas
+│   ├── middlewares/      # Auth & RBAC middlewares
+│   ├── services/         # Video processing & analysis logic
+│   ├── sockets/          # Socket.io event handlers
+│   └── utils/            # Utility helpers (FFmpeg, etc.)
+├── uploads/              # Uploaded video storage
+└── .env                  # Environment variables
 
-frontend/
-├── src/
-│   ├── api/
-│   ├── components/
-│   ├── pages/
-│   ├── App.jsx
-│   └── main.jsx
+---
 
+## Frontend Folder Structure
 
-PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
-
-
-cd backend
-npm install
-npm run dev
-
-
-cd frontend
-npm install
-npm run dev
